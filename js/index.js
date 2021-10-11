@@ -19,12 +19,10 @@ pagesNav.forEach((page, id) => {
         img.src = `./images/illustration-features-tab-${id+1}.svg`;
         if(id>0){
           img.style.marginLeft = "30px";
-          img.style.marginTop =(window.innerWidth < 600)? "0px": "50px";
-          features.style.marginBottom =(wi.innerWidth < 600)? "20px": "-20px";
+          img.style.marginTop =(window.innerWidth < 600)? "15px": "50px";
         }else{
           img.style.marginLeft = "0px";
           img.style.marginTop = "0px";
-          features.style.marginBottom = "0px";
         };
         document.querySelector(".features__title").innerHTML = titles[id];
         document.querySelector(".features__content").innerHTML = contents[id];
