@@ -1,6 +1,7 @@
 /**Start Features Pages Loading */
 const pagesNav = document.querySelectorAll(".features__item--nav");
 const features = document.querySelector(".features");
+//const featuresItem = document.querySelector(".features__item");
 const titles = ['Bookmark in one click', `Intelligent search`, `Share your bookmarks`];
 const contents = [`Organize your bookmarks however you like. Our simple drag-and-drop interface 
 gives you complete control over how you manage your favourite sites.`, `Our powerful search feature will help you find saved sites in no time at all. 
@@ -17,9 +18,13 @@ pagesNav.forEach((page, id) => {
         let img = document.querySelector(".features__img");
         img.src = `./images/illustration-features-tab-${id+1}.svg`;
         if(id>0){
-          features.style.paddingLeft = "17%"
+          img.style.marginLeft = "30px";
+          img.style.marginTop =(window.innerWidth < 600)? "0px": "50px";
+          features.style.marginBottom =(wi.innerWidth < 600)? "20px": "-20px";
         }else{
-          features.style.paddingLeft = "11.5%"
+          img.style.marginLeft = "0px";
+          img.style.marginTop = "0px";
+          features.style.marginBottom = "0px";
         };
         document.querySelector(".features__title").innerHTML = titles[id];
         document.querySelector(".features__content").innerHTML = contents[id];
@@ -80,3 +85,37 @@ const outsideClick = (e) => {
 document.addEventListener("click", outsideClick);
 submitBtn.addEventListener("click",handleSubmit);
 /***End Form Submition and Validation **/
+/**Start Open menu Mobile */
+const openMenuBtn = document.querySelector(".nav__menu");
+const closeMenuBtn = document.querySelector(".nav__close");
+const mainNav = document.querySelector(".nav--main");
+const header = document.querySelector(".header");
+const svgTitle = document.querySelector(".header__menu path:first-child");
+const svgCircle = document.querySelector(".header__menu circle");
+const svgCirclePath = document.querySelector("circle+path");
+const socialContainer = document.querySelector(".nav__container--social");
+function handleOpenMenu() {
+  openMenuBtn.style.display = "none";
+  closeMenuBtn.style.display = "block";
+  mainNav.style.display = "block";
+  header.classList.add("active");
+  svgTitle.style.fill = "#FFF";
+  svgCircle.style.fill = "#FFF";
+  svgCirclePath.style.fill = "#242A45";
+  socialContainer.style.display = "flex";
+
+}
+function handleCloseMenu() {
+  openMenuBtn.style.display = "block";
+  closeMenuBtn.style.display = "none";
+  mainNav.style.display = "none";
+  header.classList.remove("active");
+  svgTitle.style.fill = "#242A45";
+  svgCircle.style.fill = "#5267DF";
+  svgCirclePath.style.fill = "#FFF";
+  socialContainer.style.display = "none";
+}
+
+openMenuBtn.addEventListener("click",handleOpenMenu);
+closeMenuBtn.addEventListener("click",handleCloseMenu);
+/**End Open menu mobile */
