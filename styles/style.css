@@ -283,6 +283,10 @@ h2{
     background-color: var(--soft-blue);
     margin-left: 0;
 }
+.features__button:hover{
+    background-color: white;
+    color: var(--soft-blue);
+}
 .features__item--searching{
     display: none;
 }
@@ -443,6 +447,10 @@ h3{
     border: 2px solid var(--soft-blue);
     background-color: var(--soft-blue);
     margin-left: 0;
+}
+.faq__button:hover{
+    color: var(--soft-blue);
+    background-color: white;
 }
 /*End FAQ Section*/
 /*Start Contact section*/
